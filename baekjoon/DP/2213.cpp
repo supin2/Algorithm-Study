@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cstring>
 
 using namespace std;
 
@@ -28,25 +29,26 @@ void dfs(int node) {
     }
 }
 
-void track(int prev, int now, bool selected) {
+void track(int now, bool selected) {
+    visited[now] = true;
     if (selected) {
         ans.push_back(now);
 
         for (int next : v[now]) {
-            if (next == prev) {
+            if (visited[next]) {
                 continue;
             }
-            track(now, next, false);
+            track(next, false);
         }
     } else {
         for (int next : v[now]) {
-            if (next == prev) {
+            if (visited[next]) {
                 continue;
             }
             if (dp[next][0] >= dp[next][1]) {
-                track(now, next, true);
+                track(next, true);
             } else {
-                track(now, next, false);
+                track(next, false);
             }
         }
     }
@@ -67,10 +69,11 @@ int main() {
     int ret1 = dp[1][0];
     int ret2 = dp[1][1];
 
+    memset(visited, false, sizeof(visited));
     if (ret1 > ret2) {
-        track(-1, 1, true);
+        track(1, true);
     } else {
-        track(-1, 1, false);
+        track(1, false);
     }
     sort(ans.begin(), ans.end());
 
