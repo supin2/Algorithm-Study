@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int solution(int n) {
+int solution(int n) { // 투포인터
     int answer = 0;
     int a = 1, b = 1;
     int sum = 1;
@@ -35,7 +35,7 @@ int solution(int n) {
 
 // using namespace std;
 
-// int solution(int n) {
+// int solution(int n) { // 완전탐색
 //     int answer = 0;
     
 //     for (int i = 1; i <= n; i++) {
