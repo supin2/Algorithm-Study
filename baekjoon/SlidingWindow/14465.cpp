@@ -14,7 +14,7 @@ int main() {
         arr[num] = 1;
     }
 
-    int light = 0, broken = 0;
+    int broken = 0;
     for (int i = 1; i <= K; i++) {
         if (arr[i] == 1) {
             broken++;
