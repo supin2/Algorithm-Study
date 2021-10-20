@@ -21,7 +21,7 @@ int main() {
         cin >> age >> name;
         v.push_back(make_pair(age, name));
     }
-    stable_sort(v.begin(), v.end(), cmp);
+    stalbe_sort(v.begin(), v.end(), cmp);
 
     for (int i = 0; i < v.size(); i++) {
         cout << v[i].first << ' ' << v[i].second << '\n';
