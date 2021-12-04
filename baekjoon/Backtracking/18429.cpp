@@ -7,6 +7,7 @@ int N, K, W = 500, ans;
 int weight[51];
 bool selected[51];
 
+
 void dfs(int cnt) {
     if (cnt == N) {
         ans++;
